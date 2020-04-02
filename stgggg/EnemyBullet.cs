@@ -23,6 +23,11 @@ namespace stgggg
                 Dispose();
             }
         }
+        public override void OnCollided(CollidableObject collidableObject)
+        {
+            base.OnCollided(collidableObject);
+            Dispose();
+        }
         protected override void OnUpdate()
 
         {

@@ -84,6 +84,15 @@ namespace stgggg
                     OnCollided(enemy);
                 }
             }
+            if(collidableObject is EnemyBullet)
+            {
+                CollidableObject enemyBullet = collidableObject;
+                if (IsCollide(enemyBullet))
+                {
+                    OnCollided(enemyBullet);
+                    enemyBullet.OnCollided(this);
+                }
+            }
         }
         protected override void OnUpdate()
         {

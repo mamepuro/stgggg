@@ -21,14 +21,14 @@ namespace stgggg
             playerInfo = player;
             layer.AddObject(player);
             enemySpornCount = 0;
-            Enemy enemy = new Enemy(playerInfo);
+            Enemy enemy = new Enemy(new asd.Vector2DF(650.0f, 330.0f), playerInfo);
             layer.AddObject(enemy);
         }
         public void JudgeEnemySporn(int count)
         {
             if(count % 60 == 0)
             {
-                Enemy enemy = new Enemy(playerInfo);
+                Enemy enemy = new Enemy(new asd.Vector2DF(650.0f, 330.0f), playerInfo);
                 enemyInfo = enemy;
                 asd.Engine.AddObject2D(enemy);
             }

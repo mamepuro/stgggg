@@ -7,11 +7,12 @@ namespace stgggg
         asd.Vector2DF moveVelocity;
         public Player playerInfo;
         public int fireBulletCounter;
-        public Enemy(Player player)
+        public Enemy(asd.Vector2DF position, Player player)
         {
             Texture = asd.Engine.Graphics.CreateTexture2D("Resources/Enemy.png");
-            position = new asd.Vector2DF(650.0f, 330.0f);
+            //position = new asd.Vector2DF(650.0f, 330.0f);
             Position = position;
+            CenterPosition = new asd.Vector2DF(Texture.Size.X / 2.0f, Texture.Size.Y / 2.0f);
             moveVelocity = new asd.Vector2DF(0.0f, 3.0f);
             playerInfo = player;
             radius = Texture.Size.X / 2.0f;
@@ -61,6 +62,7 @@ namespace stgggg
                 if (IsCollide(playerbullet))
                 {
                     OnCollided(playerbullet);
+                    playerbullet.OnCollided(this);
                 }
             }
         }
