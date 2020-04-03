@@ -18,7 +18,7 @@ namespace stgggg
         }
         public void DisposeEnemyBullet()
         {
-            if(Position.X > asd.Engine.WindowSize.X || Position.Y > asd.Engine.WindowSize.Y)
+            if(Position.X > (asd.Engine.WindowSize.X + Texture.Size.X / 2.0f) || Position.X < -Texture.Size.X / 2.0f || Position.Y > (asd.Engine.WindowSize.Y + Texture.Size.Y / 2.0f) || Position.Y < -Texture.Size.Y / 2.0f)
             {
                 Dispose();
             }

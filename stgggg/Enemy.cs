@@ -4,44 +4,24 @@ namespace stgggg
     public class Enemy:CollidableObject
     {
         asd.Vector2DF position;
-        asd.Vector2DF moveVelocity;
         public Player playerInfo;
-        public int fireBulletCounter;
         public Enemy(asd.Vector2DF position, Player player)
         {
             Texture = asd.Engine.Graphics.CreateTexture2D("Resources/Enemy.png");
             //position = new asd.Vector2DF(650.0f, 330.0f);
             Position = position;
             CenterPosition = new asd.Vector2DF(Texture.Size.X / 2.0f, Texture.Size.Y / 2.0f);
-            moveVelocity = new asd.Vector2DF(0.0f, 3.0f);
             playerInfo = player;
             radius = Texture.Size.X / 2.0f;
-            fireBulletCounter = 0;
         }
-        public void Move()
+        public virtual void Move()
         {
-            position += moveVelocity;
-            Position = position;
         }
         public void DisposeEnemy()
         {
-            if(Position.X > asd.Engine.WindowSize.X || Position.Y > asd.Engine.WindowSize.Y)
+            if(Position.X > (asd.Engine.WindowSize.X + Texture.Size.X / 2.0f) || Position.X < -Texture.Size.X / 2.0f || Position.Y > (asd.Engine.WindowSize.Y + Texture.Size.Y / 2.0f) || Position.Y < -Texture.Size.Y / 2.0f)
             {
                 Dispose();
-            }
-        }
-        public void FireEnermyBullet()
-        {
-            asd.Vector2DF targetaVector = playerInfo.Position - Position;
-            asd.Vector2DF aimVector = targetaVector.Normal * 1.5f;
-            EnemyBullet enemyBullet = new EnemyBullet(Position, aimVector);
-            asd.Engine.AddObject2D(enemyBullet);
-        }
-        public void JudgeFireEnemyBullet(int count)
-        {
-            if(count % 60 == 0 && playerInfo.IsAlive)
-            {
-                FireEnermyBullet();
             }
         }
         public override void OnCollided(CollidableObject collidableObject)
@@ -69,11 +49,8 @@ namespace stgggg
         protected override void OnUpdate()
         {
             base.OnUpdate();
-            //Move();
-            //JudgeFireEnemyBullet(fireBulletCounter);
             DisposeEnemy();
             CheckCollision();
-            fireBulletCounter += 1;
         }
     }
 }

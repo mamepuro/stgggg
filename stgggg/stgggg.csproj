@@ -42,6 +42,7 @@
     <Compile Include="CollidableObject.cs" />
     <Compile Include="EnemyBullet.cs" />
     <Compile Include="StraightMoveEnemy.cs" />
+    <Compile Include="BulletEnemy.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
