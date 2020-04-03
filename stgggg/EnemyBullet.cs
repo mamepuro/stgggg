@@ -29,7 +29,6 @@ namespace stgggg
             Dispose();
         }
         protected override void OnUpdate()
-
         {
             base.OnUpdate();
             Move();

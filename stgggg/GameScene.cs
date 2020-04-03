@@ -21,8 +21,8 @@ namespace stgggg
             playerInfo = player;
             layer.AddObject(player);
             enemySpornCount = 0;
-            Enemy enemy = new Enemy(new asd.Vector2DF(650.0f, 330.0f), playerInfo);
-            layer.AddObject(enemy);
+            StraightMoveEnemy straightMoveEnemy = new StraightMoveEnemy(new asd.Vector2DF(400.0f, 340.0f), new asd.Vector2DF(1.0f, 0.0f), playerInfo);
+            layer.AddObject(straightMoveEnemy);
         }
         public void JudgeEnemySporn(int count)
         {

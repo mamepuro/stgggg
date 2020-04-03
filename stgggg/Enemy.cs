@@ -70,7 +70,7 @@ namespace stgggg
         {
             base.OnUpdate();
             //Move();
-            JudgeFireEnemyBullet(fireBulletCounter);
+            //JudgeFireEnemyBullet(fireBulletCounter);
             DisposeEnemy();
             CheckCollision();
             fireBulletCounter += 1;
