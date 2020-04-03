@@ -1,12 +1,12 @@
 ﻿using System;
 namespace stgggg
 {
-    public class BulletEnemy:Enemy
+    public class NomalEnemy:Enemy
     {
         asd.Vector2DF position;
         asd.Vector2DF moveVelocity;
         public int fireBulletCounter;
-        public BulletEnemy(asd.Vector2DF position, asd.Vector2DF moveVelocity, Player player)
+        public NomalEnemy(asd.Vector2DF position, asd.Vector2DF moveVelocity, Player player)
             :base(position,player)
         {
             this.position = position;

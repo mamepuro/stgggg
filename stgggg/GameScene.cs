@@ -22,8 +22,9 @@ namespace stgggg
             layer.AddObject(player);
             enemySpornCount = 0;
             //StraightMoveEnemy straightMoveEnemy = new StraightMoveEnemy(new asd.Vector2DF(400.0f, 340.0f), new asd.Vector2DF(1.0f, 0.0f), playerInfo);
-            BulletEnemy bulletEnemy = new BulletEnemy(new asd.Vector2DF(400.0f, 340.0f), new asd.Vector2DF(0.0f, 0.0f), playerInfo);
-            layer.AddObject(bulletEnemy);
+            //NomalEnemy nomalEnemy= new NomalEnemy(new asd.Vector2DF(400.0f, 340.0f), new asd.Vector2DF(0.0f, 0.0f), playerInfo);
+            WavyAttackEnemy wavyAttackEnemy = new WavyAttackEnemy(new asd.Vector2DF(400.0f, 340.0f), new asd.Vector2DF(0.0f, 0.0f), playerInfo);
+            layer.AddObject(wavyAttackEnemy);
         }
         public void JudgeEnemySporn(int count)
         {

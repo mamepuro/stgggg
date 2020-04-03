@@ -42,7 +42,8 @@
     <Compile Include="CollidableObject.cs" />
     <Compile Include="EnemyBullet.cs" />
     <Compile Include="StraightMoveEnemy.cs" />
-    <Compile Include="BulletEnemy.cs" />
+    <Compile Include="NomalEnemy.cs" />
+    <Compile Include="WavyAttackEnemy.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
