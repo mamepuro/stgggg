@@ -16,6 +16,7 @@ namespace stgggg
         public override void Move()
         {
             base.Move();
+            //moveVelocity = new asd.Vector2DF((float)Math.Sin(fireBulletCounter * 8 * Math.PI / 180.0f), 0);
             position += moveVelocity;
             Position = position;
         }

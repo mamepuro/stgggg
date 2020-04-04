@@ -23,8 +23,9 @@ namespace stgggg
             enemySpornCount = 0;
             //StraightMoveEnemy straightMoveEnemy = new StraightMoveEnemy(new asd.Vector2DF(400.0f, 340.0f), new asd.Vector2DF(1.0f, 0.0f), playerInfo);
             //NomalEnemy nomalEnemy= new NomalEnemy(new asd.Vector2DF(400.0f, 340.0f), new asd.Vector2DF(0.0f, 0.0f), playerInfo);
-            WavyAttackEnemy wavyAttackEnemy = new WavyAttackEnemy(new asd.Vector2DF(400.0f, 340.0f), new asd.Vector2DF(0.0f, 0.0f), playerInfo);
-            layer.AddObject(wavyAttackEnemy);
+            //WavyAttackEnemy wavyAttackEnemy = new WavyAttackEnemy(new asd.Vector2DF(400.0f, 340.0f), new asd.Vector2DF(0.0f, 0.0f), playerInfo);
+            ReciprocateEnemy reciprocateEnemy = new ReciprocateEnemy(new asd.Vector2DF(400.0f, 340.0f), new asd.Vector2DF(0.0f, 0.0f), playerInfo);
+            layer.AddObject(reciprocateEnemy);
         }
         public void JudgeEnemySporn(int count)
         {

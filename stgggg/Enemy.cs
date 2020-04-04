@@ -3,7 +3,6 @@ namespace stgggg
 {
     public class Enemy:CollidableObject
     {
-        asd.Vector2DF position;
         public Player playerInfo;
         public Enemy(asd.Vector2DF position, Player player)
         {

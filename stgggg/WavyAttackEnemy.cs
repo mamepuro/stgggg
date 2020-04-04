@@ -11,6 +11,11 @@ namespace stgggg
             this.moveVelocity = moveVelocity;
             waveAttackCount = 0;
         }
+        public override void Move()
+        {
+            base.Move();
+            Position += moveVelocity;
+        }
         public void WaveAttackShot(float degree)
         {
             asd.Vector2DF dirVector = new asd.Vector2DF(1.0f, 0.0f);
@@ -22,7 +27,7 @@ namespace stgggg
         {
             if(count % 4 == 0)
             {
-                WaveAttackShot(count * 8);
+                WaveAttackShot(count * 4);
             }
         }
         protected override void OnUpdate()
