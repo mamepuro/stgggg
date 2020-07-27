@@ -26,6 +26,12 @@ namespace stgggg
             //WavyAttackEnemy wavyAttackEnemy = new WavyAttackEnemy(new asd.Vector2DF(400.0f, 340.0f), new asd.Vector2DF(0.0f, 0.0f), playerInfo);
             ReciprocateEnemy reciprocateEnemy = new ReciprocateEnemy(new asd.Vector2DF(400.0f, 340.0f), new asd.Vector2DF(0.0f, 0.0f), playerInfo);
             layer.AddObject(reciprocateEnemy);
+            asd.Font font = asd.Engine.Graphics.CreateDynamicFont("", 24, new asd.Color(255, 255, 255), 1, new asd.Color(255, 255, 255));
+            asd.TextObject2D textObject = new asd.TextObject2D();
+            textObject.Font = font;
+            textObject.Text = "おやすみなさい";
+            textObject.Position = new asd.Vector2DF(255, 255);
+            layer.AddObject(textObject);
         }
         public void JudgeEnemySporn(int count)
         {
