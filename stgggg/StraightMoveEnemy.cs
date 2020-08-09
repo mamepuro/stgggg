@@ -13,7 +13,7 @@ namespace stgggg
         }
         public asd.Vector2DF CalculateMovePosition(Player player)
         {
-            return (player.Position - this.Position).Normal * 5.0f;
+            return (player.Position - this.Position).Normal * 3.0f; 
         }
         public void Rush()
         {

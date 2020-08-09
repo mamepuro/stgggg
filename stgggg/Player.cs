@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Drawing;
+
 namespace stgggg
 {
     public class Player:CollidableObject
@@ -9,6 +11,7 @@ namespace stgggg
         asd.Vector2DF sideMoveVelocity;
         asd.Vector2DF verticalMoveVelocity;
         public  float chargeTime;
+        PlayersHealth playersHealth;
         public Player()
         {
             Texture = asd.Engine.Graphics.CreateTexture2D("Resources/player.png");
@@ -19,22 +22,23 @@ namespace stgggg
             chargeTime = 0.0f;
             CenterPosition = new asd.Vector2DF(Texture.Size.X / 2.0f, Texture.Size.Y / 2.0f);
             radius = Texture.Size.Y / 2.0f;
+            playersHealth = PlayersHealth.Nomal;
         }
         public void Move()
         {
-            if(asd.Engine.Keyboard.GetKeyState(asd.Keys.Up) == asd.KeyState.Hold)
+            if(asd.Engine.Keyboard.GetKeyState(asd.Keys.Up) == asd.KeyState.Hold && playersHealth == PlayersHealth.Nomal)
             {
                 position -= verticalMoveVelocity;
             }
-            if(asd.Engine.Keyboard.GetKeyState(asd.Keys.Down) == asd.KeyState.Hold)
+            if(asd.Engine.Keyboard.GetKeyState(asd.Keys.Down) == asd.KeyState.Hold && playersHealth == PlayersHealth.Nomal)
             {
                 position += verticalMoveVelocity;
             }
-            if(asd.Engine.Keyboard.GetKeyState(asd.Keys.Left) == asd.KeyState.Hold)
+            if(asd.Engine.Keyboard.GetKeyState(asd.Keys.Left) == asd.KeyState.Hold && playersHealth == PlayersHealth.Nomal)
             {
                 position -= sideMoveVelocity;
             }
-            if(asd.Engine.Keyboard.GetKeyState(asd.Keys.Right) == asd.KeyState.Hold)
+            if(asd.Engine.Keyboard.GetKeyState(asd.Keys.Right) == asd.KeyState.Hold && playersHealth == PlayersHealth.Nomal)
             {
                 position += sideMoveVelocity;
             }
@@ -67,8 +71,20 @@ namespace stgggg
         }
         public override void OnCollided(CollidableObject collidableObject)
         {
-            base.OnCollided(collidableObject);
-            Dispose();
+            if(collidableObject is FreezeBullet)
+            {
+                base.OnCollided(collidableObject);
+                if(playersHealth == PlayersHealth.Nomal)
+                {
+                    this.playersHealth = PlayersHealth.Frozen;
+                    Texture = asd.Engine.Graphics.CreateTexture2D("Resources/Frozenplayer.png");
+                }
+            }
+            else
+            {
+                base.OnCollided(collidableObject);
+                Dispose();
+            }
         }
         public override void CollideWithObject(CollidableObject collidableObject)
         {
@@ -91,6 +107,15 @@ namespace stgggg
                 {
                     OnCollided(enemyBullet);
                     enemyBullet.OnCollided(this);
+                }
+            }
+            if(collidableObject is FreezeBullet)
+            {
+                CollidableObject freezeBullet = collidableObject;
+                if (IsCollide(freezeBullet))
+                {
+                    OnCollided(freezeBullet);
+                    freezeBullet.OnCollided(this);
                 }
             }
         }

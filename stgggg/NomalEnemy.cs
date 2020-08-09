@@ -24,12 +24,13 @@ namespace stgggg
         {
             asd.Vector2DF targetaVector = playerInfo.Position - Position;
             asd.Vector2DF aimVector = targetaVector.Normal * 1.5f;
-            EnemyBullet enemyBullet = new EnemyBullet(Position, aimVector);
-            asd.Engine.AddObject2D(enemyBullet);
+            //EnemyBullet enemyBullet = new EnemyBullet(Position, aimVector);
+            FreezeBullet freezeBullet = new FreezeBullet(Position, aimVector);
+            asd.Engine.AddObject2D(freezeBullet);
         }
         public void JudgeFireEnemyBullet(int count)
         {
-            if (count % 60 == 0 && playerInfo.IsAlive)
+            if (count % 120 == 0 && playerInfo.IsAlive)
             {
                 FireEnermyBullet();
             }

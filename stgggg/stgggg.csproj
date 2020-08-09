@@ -31,6 +31,7 @@
     <Reference Include="Altseed">
       <HintPath>..\packages\AltseedDotNet.1.1.5.3\lib\net45\Altseed.dll</HintPath>
     </Reference>
+    <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
@@ -45,6 +46,8 @@
     <Compile Include="NomalEnemy.cs" />
     <Compile Include="WavyAttackEnemy.cs" />
     <Compile Include="ReciprocateEnemy.cs" />
+    <Compile Include="FreezeBullet.cs" />
+    <Compile Include="PlayersHealth.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
