@@ -1,35 +1,31 @@
 ﻿using System;
 namespace stgggg
 {
-    public class EnemyBullet:CollidableObject
+    public class NomalEnemyBullet:EnemyBullet
     {
-        public EnemyBullet(asd.Vector2DF position)
+        public asd.Vector2DF _moveVelocity;
+        public NomalEnemyBullet(asd.Vector2DF position, asd.Vector2DF moveVelocity)
+            :base(position)
         {
             Texture = asd.Engine.Graphics.CreateTexture2D("Resources/EnemyBullet.png");
             Position = position;
+            _moveVelocity = moveVelocity;
             CenterPosition = new asd.Vector2DF(Texture.Size.X / 2.0f, Texture.Size.Y / 2.0f);
             radius = Texture.Size.X / 2.0f;
         }
-        protected virtual void Move()
+        protected override void Move()
         {
-
-        }
-        public void DisposeEnemyBullet()
-        {
-            if(Position.X > (asd.Engine.WindowSize.X + Texture.Size.X / 2.0f) || Position.X < -Texture.Size.X / 2.0f || Position.Y > (asd.Engine.WindowSize.Y + Texture.Size.Y / 2.0f) || Position.Y < -Texture.Size.Y / 2.0f)
-            {
-                Dispose();
-            }
+            Position += _moveVelocity;
         }
         public override void OnCollided(CollidableObject collidableObject)
         {
             base.OnCollided(collidableObject);
+            Dispose();
         }
         protected override void OnUpdate()
         {
             base.OnUpdate();
             Move();
-            DisposeEnemyBullet();
         }
     }
 }

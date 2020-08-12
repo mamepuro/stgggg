@@ -20,8 +20,9 @@ namespace stgggg
         {
             asd.Vector2DF dirVector = new asd.Vector2DF(1.0f, 0.0f);
             dirVector.Degree = degree;
-            EnemyBullet enemyBullet = new EnemyBullet(Position, dirVector);
-            asd.Engine.AddObject2D(enemyBullet);
+            //EnemyBullet enemyBullet = new EnemyBullet(Position, dirVector);
+            NomalEnemyBullet nomalEnemyBullet = new NomalEnemyBullet(Position, dirVector);
+            asd.Engine.AddObject2D(nomalEnemyBullet);
         }
         public void JudgeWaveAttackshot(int count)
         {

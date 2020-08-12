@@ -48,6 +48,7 @@
     <Compile Include="ReciprocateEnemy.cs" />
     <Compile Include="FreezeBullet.cs" />
     <Compile Include="PlayersHealth.cs" />
+    <Compile Include="NomalEnemyBullet.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -4,6 +4,6 @@ namespace stgggg
     public enum PlayersHealth
     {
         Nomal,
-        frozen,
+        Frozen,
     }
 }
